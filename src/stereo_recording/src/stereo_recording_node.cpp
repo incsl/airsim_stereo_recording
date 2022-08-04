@@ -2,9 +2,6 @@
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
 
-#include <std_msgs/String.h>
-#include <std_msgs/String.h>
-
 #include <api/RpcLibClientBase.hpp>
 #include <common/VectorMath.hpp>
 #include <common/common_utils/FileSystem.hpp>
