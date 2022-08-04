@@ -1,0 +1,106 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "ComputerVision",
+  "Vehicles": {
+    "CVMODE": {
+      "VehicleType": "ComputerVision",
+            "Cameras": {
+        "Front_Left_Camera":{
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 0,
+              "Width": 960,
+              "Height": 600,
+              "FOV_Degrees": 90,
+              "DepthOfFieldFstop": 2.8,
+              "DepthOfFieldFocalDistance": 200.0, 
+              "DepthOfFieldFocalRegion": 200.0,
+              "TargetGamma": 1.5,
+              "AutoExposureSpeed": 100,
+              "AutoExposureBias": 0,
+              "AutoExposureMaxBrightness": 0.64,
+              "AutoExposureMinBrightness": 0.03,
+              "MotionBlurAmount": 0,
+              "ProjectionMode": "",
+              "OrthoWidth": 5.12
+            }
+          ],
+          "NoiseSettings": [
+            {
+              "Enabled": false,
+              "ImageType": 0,
+
+              "RandContrib": 0.2,
+              "RandSpeed": 100000.0,
+              "RandSize": 500.0,
+              "RandDensity": 2,
+
+              "HorzWaveContrib": 0.03,
+              "HorzWaveStrength": 0.08,
+              "HorzWaveVertSize": 1.0,
+              "HorzWaveScreenSize": 1.0,
+
+              "HorzNoiseLinesContrib": 1.0,
+              "HorzNoiseLinesDensityY": 0.01,
+              "HorzNoiseLinesDensityXY": 0.5,
+
+              "HorzDistortionContrib": 1.0,
+              "HorzDistortionStrength": 0.002
+            }
+          ],
+          "X": 0.50, "Y": -0.06, "Z": 0.10,
+          "Pitch": 0, "Roll": 0, "Yaw": 0
+        },
+        "Front_Right_Camera":{
+          "CaptureSettings": [
+            {
+              "PublishToRos": 1,
+              "ImageType": 0,
+              "Width": 960,
+              "Height": 600,
+              "FOV_Degrees": 90,
+              "DepthOfFieldFstop": 2.8,
+              "DepthOfFieldFocalDistance": 200.0, 
+              "DepthOfFieldFocalRegion": 200.0,
+              "TargetGamma": 1.5,
+              "AutoExposureSpeed": 100,
+              "AutoExposureBias": 0,
+              "AutoExposureMaxBrightness": 0.64,
+              "AutoExposureMinBrightness": 0.03,
+              "MotionBlurAmount": 0,
+              "ProjectionMode": "",
+              "OrthoWidth": 5.12
+            }
+          ],
+          "NoiseSettings": [
+            {
+              "Enabled": false,
+              "ImageType": 0,
+
+              "RandContrib": 0.2,
+              "RandSpeed": 100000.0,
+              "RandSize": 500.0,
+              "RandDensity": 2,
+
+              "HorzWaveContrib": 0.03,
+              "HorzWaveStrength": 0.08,
+              "HorzWaveVertSize": 1.0,
+              "HorzWaveScreenSize": 1.0,
+
+              "HorzNoiseLinesContrib": 1.0,
+              "HorzNoiseLinesDensityY": 0.01,
+              "HorzNoiseLinesDensityXY": 0.5,
+
+              "HorzDistortionContrib": 1.0,
+              "HorzDistortionStrength": 0.002
+            }
+          ],
+          "X": 0.50, "Y": 0.06, "Z": 0.10,
+          "Pitch": 0, "Roll": 0, "Yaw": 0
+        }
+      }
+    }
+  }
+}
