@@ -1,4 +1,4 @@
-## Time-synced stereo camera for ROS + AirSim
+## Time-synced stereo camera for ROS and AirSim
 AirSim has been known for impossible to get time-synced stereo camera [#4569](https://github.com/microsoft/AirSim/issues/4569), [#4171](https://github.com/microsoft/AirSim/issues/4171), [#2784](https://github.com/microsoft/AirSim/issues/2784).
 
 The time delay between 2 cameras is varying around 0.05 - 0.15 seconds depends on computer specs.
@@ -9,6 +9,8 @@ This repo solves above problem using the computer vision mode inspired by [VIODE
 AirSim version: lastest.
 
 Ubuntu: 20.04.
+
+ROS: 1
 
 Unreal Engine: 4.27.
 
