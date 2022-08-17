@@ -67,6 +67,7 @@ int main(int argc, char** argv)
 
     rosbag::View view(bagIn, rosbag::TopicQuery(topics));
     nav_msgs::Path pathMsg;
+    nav_msgs::Path pathMsg_open_vins;
 
     std::cout << "Recording Start!" << std::endl;
 
@@ -104,6 +105,22 @@ int main(int argc, char** argv)
 
             bagOut.write("SJU_Vehicle/path", odom_timestamp, pathMsg);
 
+            geometry_msgs::PoseStamped pose_open_vins_;
+            pose_open_vins_.pose.position.x = odomMsg->pose.pose.position.x;
+            pose_open_vins_.pose.position.y = -odomMsg->pose.pose.position.y;
+            pose_open_vins_.pose.position.z = -odomMsg->pose.pose.position.z;
+            pose_open_vins_.pose.orientation.w = odomMsg->pose.pose.orientation.w;
+            pose_open_vins_.pose.orientation.x = odomMsg->pose.pose.orientation.x;
+            pose_open_vins_.pose.orientation.y = odomMsg->pose.pose.orientation.y;
+            pose_open_vins_.pose.orientation.z = odomMsg->pose.pose.orientation.z;
+            pose_open_vins_.header.stamp = odomMsg->header.stamp;
+            pose_open_vins_.header.frame_id = "global";
+
+            pathMsg_open_vins.poses.push_back(pose_open_vins_);
+            pathMsg_open_vins.header.stamp = odom_timestamp;
+            pathMsg_open_vins.header.frame_id = "global";
+
+            bagOut.write("SJU_Vehicle/path_open_vins", odom_timestamp, pathMsg_open_vins);
             // count += 1;
 
             // if (count == (Odom_hz / Camera_hz)) {
