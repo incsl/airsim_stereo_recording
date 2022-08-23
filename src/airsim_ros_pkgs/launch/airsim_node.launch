@@ -1,0 +1,40 @@
+<launch>
+	<arg name="output" default="log"/>
+	<arg name="publish_clock" default="false"/>
+	<arg name="is_vulkan" default="true"/>
+	<arg name="host" default="localhost" />
+
+	<node name="airsim_node" pkg="airsim_ros_pkgs" type="airsim_node" output="$(arg output)">
+		<param name="is_vulkan" type="bool" value="false" /> 
+		<!-- ROS timer rates. Note that timer callback will be processed at maximum possible rate, upperbounded by the following ROS params -->
+		<param name="update_airsim_img_response_every_n_sec" type="double" value="0.05" /> 
+		<param name="update_airsim_control_every_n_sec" type="double" value="0.05" />
+		<param name="update_imu_n_sec" type="double" value="0.01" />
+		<param name="update_lidar_every_n_sec" type="double" value="0.05" />
+		<param name="publish_clock" type="bool" value="$(arg publish_clock)" />
+		<param name="host_ip" type="string" value="$(arg host)" />
+	</node>
+
+  <group ns="airsim_node/SJU_Vehicle/Front_Left_Camera/Scene" >
+    <rosparam param="disable_pub_plugins">
+      - 'image_transport/compressedDepth'
+      - 'image_transport/theora'
+    </rosparam>
+  </group>
+
+  <group ns="airsim_node/SJU_Vehicle/Front_Right_Camera/Scene" >
+    <rosparam param="disable_pub_plugins">
+      - 'image_transport/compressedDepth'
+      - 'image_transport/theora'
+    </rosparam>
+  </group>
+
+  <node pkg="rosbag" type="record" name="SJU_Recording"
+      args="record -a -O SJU_Car_Lidar.bag" output="screen" />
+  <!--
+  <node pkg="rosbag" type="record" name="SJU_Recording"
+      args="record airsim_node/SJU_Vehicle/imu/Imu airsim_node/SJU_Vehicle/odom_local_ned airsim_node/SJU_Vehicle/lidar/Lidar velodyne_points -O SJU_Car_Lidar.bag" output="screen" />
+  -->
+	<!-- Static transforms -->
+	<include file="$(find airsim_ros_pkgs)/launch/static_transforms.launch"/>
+</launch>
